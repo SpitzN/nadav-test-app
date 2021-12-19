@@ -24,9 +24,9 @@ function AppRouter() {
                     <Route path="/" element={<ShopWithStorage />} />
                     <Route path="/checkout" element={
 
-                        <CheckoutWithStorage amount="10000"/>
+                        <CheckoutWithStorage />
                     } />
-                    <Route path="/success/*" element=<Success /> />
+                    <Route path="/success/*" element={<Success/>}/>
 
                 </Routes>
             </div>

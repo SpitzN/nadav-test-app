@@ -36,7 +36,7 @@ function Checkout (props) {
         <div>
             {(clientSecret && amount) && (
                 <Elements options={options} stripe={stripePromise}>
-                    <CheckoutFormWithStorage amount={amount}/>
+                    <CheckoutFormWithStorage amount={amount} clientSecret={clientSecret}/>
                 </Elements>
             )}
         </div>

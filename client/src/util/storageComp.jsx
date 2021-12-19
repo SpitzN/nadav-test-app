@@ -5,8 +5,8 @@ const StorageComp = (WrappedComponent) => {
         function save(key, data) {
             localStorage.setItem(key, data);
         }
-        function load(key, data) {
-            return localStorage.getItem(key, data);
+        function load(key) {
+            return localStorage.getItem(key);
         }
 
         return <WrappedComponent

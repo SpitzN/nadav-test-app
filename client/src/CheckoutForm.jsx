@@ -12,18 +12,21 @@ export default function CheckoutForm(props) {
     const elements = useElements();
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const { amount, clientSecret } = props;
+    // const [clientSecret, setClientSecret] = useState("");
+    // const [amount, setAmount] = useState(0);
 
-    let clientSecret = "";
-    let amount = "";
 
     useEffect(() => {
       if (!props.load) {
         return;
       }
-      clientSecret = props.load("clientSecret")
-      amount = Number(props.load("amount"));
-      console.log("client secret is: ", clientSecret);
-      console.log("amount in form is: ", amount)
+
+      // setClientSecret(props.load("clientSecret"));
+      // setAmount(props.load("amount"));
+      // clientSecret = props.load("clientSecret")
+      // amount = Number(props.load("amount"));
+    
         if(!stripe){
             return;
         }
@@ -66,6 +69,8 @@ export default function CheckoutForm(props) {
       });
     }, []);
 
+    console.log("client secret is: ", clientSecret);
+    console.log("amount in form is: ", amount)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -105,7 +110,7 @@ export default function CheckoutForm(props) {
         <form id="payment-form" onSubmit={handleSubmit}>
             <ShopItem amount={amount}/>
             <PaymentElement id="payment-element" />
-            <Button onClick={handleSubmit} disabled={isLoading || !stripe || !elements} variant="contained" size="large" color="primary" id="submit">
+            <Button type="submit" disabled={isLoading || !stripe || !elements} variant="contained" size="large" color="primary" id="submit">
                 <span id="button-text">
                     Pay now
                 </span>

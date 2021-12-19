@@ -20,10 +20,10 @@ function Shop(props) {
                 props.save('clientSecret', data.client_secret);
                 props.save('amount', amount);
             }
-
+            
+            navigate("checkout");
         });
 
-        navigate("checkout");
     }
     console.log("amount in shop: ", amount);
     return (

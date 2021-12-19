@@ -3,14 +3,17 @@ import logo from './bounce.svg'
 import './shopItem.css'
 
 function ShopItem(props) {
-    const [amount, setAmount] = useState(0);
+    // const [amount, setAmount] = useState(0);
+    const { amount } = props;
 
-    useEffect(() => {
-        if(!props.amount){
-            return;
-        }
-        setAmount(props.amount);
-    },[]);
+    // useEffect(() => {
+    //     if(!amount){
+    //         return;
+    //     }
+    //     // setAmount(props.amount);
+    //     console.log("amount in item: ", amount);
+    // },[amount]);
+
     return (
         <div>
             <img src={logo} className="item-image" alt="item" />
